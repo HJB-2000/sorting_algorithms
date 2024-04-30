@@ -29,7 +29,10 @@ void quick_sort(int *array, size_t size);
 void swap(int *array, ssize_t item1, ssize_t item2);
 int lomuto(int *array, ssize_t f, ssize_t l, size_t len);
 void quick_sort_0(int *array, ssize_t f, ssize_t l, int len);
-/*****************************************************************/
+/****************100-shell_sort.c**********************/
+void shell_sort(int *array, size_t size);
+/****************101-cocktail_sort_list.c************/
+void cocktail_sort_list(listint_t **list);
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 #endif

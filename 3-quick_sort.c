@@ -3,16 +3,16 @@
  * swap - Swaps the positions of two elements in an array.
  *
  * @array: The array.
- * @item1: Index of the first element to swap.
- * @item2: Index of the second element to swap.
+ * @n1: Index of the first element to swap.
+ * @n2: Index of the second element to swap.
  */
-void swap(int *array, ssize_t item1, ssize_t item2)
+void swap(int *array, ssize_t n1, ssize_t n2)
 {
 	int a;
 
-	a = array[item1];
-	array[item1] = array[item2];
-	array[item2] = a;
+	a = array[n1];
+	array[n1] = array[n2];
+	array[n2] = a;
 }
 /**
  * lomuto - Implements the Lomuto partition sorting scheme.
