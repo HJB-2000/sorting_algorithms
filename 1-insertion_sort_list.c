@@ -14,14 +14,14 @@ void insertion_sort_list(listint_t **list)
 	n = (*list)->next;
 	for (; n; n = n->next)
 	{
-		for (; n->prev && n->prev->n > n->n; n = nodeswap(n, list))
+		for (; n->prev && n->prev->n > n->n; n = swap_node(n, list))
 		{
 			print_list(*list);
 		}
 	}
 }
 /**
- * nodeswap - Swaps a given node with its previous
+ * swap_node - Swaps a given node with its previous
  * node in a doubly linked list.
  *
  * @node: The node to swap.
@@ -29,7 +29,7 @@ void insertion_sort_list(listint_t **list)
  *
  * Return: Pointer to the node that was swapped.
  */
-listint_t *nodeswap(listint_t *node, listint_t **list)
+listint_t *swap_node(listint_t *node, listint_t **list)
 {
 	listint_t *prev_node = node->prev, *current = node;
 

@@ -21,9 +21,9 @@ typedef struct listint_s
 void bubble_sort(int *array, size_t size);
 /*****************1-insertion_sort_list.c************/
 void insertion_sort_list(listint_t **list);
-listint_t *nodeswap(listint_t *node, listint_t **list);
 /**************2-selection_sort***********************/
 void selection_sort(int *array, size_t size);
+listint_t *swap_node(listint_t *node, listint_t **list);
 /**************3-quick_sort.c*************************/
 void quick_sort(int *array, size_t size);
 void swap(int *array, ssize_t item1, ssize_t item2);
