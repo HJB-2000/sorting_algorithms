@@ -31,18 +31,20 @@ void insertion_sort_list(listint_t **list)
  */
 listint_t *nodeswap(listint_t *node, listint_t **list)
 {
-	listint_t *back = node->prev, *current = node;
-	/*NULL, 19, 48, 9, 71, 13, NULL*/
+	listint_t *prev_node = node->prev, *current = node;
 
-	back->next = current->next;
-	if (current->next)
-		current->next->prev = back;
-	current->next = back;
-	current->prev = back->prev;
-	back->prev = current;
-	if (current->prev)
-		current->prev->next = current;
-	else
-		*list = current;
+	if (prev_node)
+	{
+		prev_node->next = current->next;
+		if (current->next)
+			current->next->prev = prev_node;
+		current->next = prev_node;
+		current->prev = prev_node->prev;
+		prev_node->prev = current;
+		if (current->prev)
+			current->prev->next = current;
+		else
+			*list = current;
+	}
 	return (current);
 }
