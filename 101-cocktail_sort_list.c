@@ -32,7 +32,6 @@ listint_t *swap_node(listint_t *node, listint_t **list)
  *
  * @list: pointer to the doubly linked list
  */
-
 void cocktail_sort_list(listint_t **list)
 {
 	listint_t *node;
@@ -41,8 +40,9 @@ void cocktail_sort_list(listint_t **list)
 	if (list == NULL || (*list) == NULL || (*list)->next == NULL)
 		return;
 	node = *list;
-	for (; swap == 1; swap = 0)
+	while (swap == 1)
 	{
+		swap = 0;
 		while (node->next)
 		{
 			if (node->n > node->next->n)
@@ -56,7 +56,7 @@ void cocktail_sort_list(listint_t **list)
 		if (swap == 0)
 			break;
 		swap = 0;
-		for (; node->prev;)
+		while (node->prev)
 		{
 			if (node->n < node->prev->n)
 			{
@@ -65,9 +65,8 @@ void cocktail_sort_list(listint_t **list)
 				print_list(*list);
 			}
 			else
-			{
 				node = node->prev;
-			}
 		}
 	}
 }
+
