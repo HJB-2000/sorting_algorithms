@@ -7,17 +7,19 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *n;
+	listint_t *node;
 
 	if (list == NULL || (*list)->next == NULL)
 		return;
-	n = (*list)->next;
-	for (; n; n = n->next)
+	node = (*list)->next;
+	while (node)
 	{
-		for (; n->prev && n->prev->n > n->n; n = swap_node(n, list))
+		while ((node->prev) && (node->prev->n > node->n))
 		{
+			node = swap_node(node, list);
 			print_list(*list);
 		}
+		node = node->next;
 	}
 }
 /**
@@ -31,20 +33,18 @@ void insertion_sort_list(listint_t **list)
  */
 listint_t *swap_node(listint_t *node, listint_t **list)
 {
-	listint_t *prev_node = node->prev, *current = node;
+	listint_t *back = node->prev, *current = node;
+	/*NULL, 19, 48, 9, 71, 13, NULL*/
 
-	if (prev_node)
-	{
-		prev_node->next = current->next;
-		if (current->next)
-			current->next->prev = prev_node;
-		current->next = prev_node;
-		current->prev = prev_node->prev;
-		prev_node->prev = current;
-		if (current->prev)
-			current->prev->next = current;
-		else
-			*list = current;
-	}
+	back->next = current->next;
+	if (current->next)
+		current->next->prev = back;
+	current->next = back;
+	current->prev = back->prev;
+	back->prev = current;
+	if (current->prev)
+		current->prev->next = current;
+	else
+		*list = current;
 	return (current);
 }
