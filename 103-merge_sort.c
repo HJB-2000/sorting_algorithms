@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdio.h>
 /**
  * zeroalloc - Allocate memory for an array and set its contents to zero.
  *
